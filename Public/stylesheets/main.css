@@ -1,3 +1,5 @@
 body {
-	background-image: url(http://www.conwayfamilywines.com/assets/images/img_vineyards.jpg);
+	/*background-image: url("http://www.conwayfamilywines.com/assets/images/img_vineyards.jpg");*/
+	background-image: url("https://www.domainecarneros.com/assets/winemaking/organic_gallery/Organic-Carneros-Vineyard_Gallery1.jpg");
+	background-size: cover;
 }

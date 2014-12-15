@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>New User Sign Up</title>
-</head>
-<body>
-New User- please sign in
-</body>
+	<head>
+		<title></title>
+	</head>
+	<body>
+	  Please sign up to your favorites
+	  <form method="post" action="/users">
+	  	<div>
+	  		<input type="text" name="user[firstName]" placeholder="First Name">
+	  	</div>
+	  	<div>
+	  		<input type="text" name="user[lastName]" placeholder="Last Name">
+	  	</div>
+	    <div>
+	    	<input type="text" name="user[email]" placeholder="Email">
+	    </div>
+	  	<div>
+	  		<input type="text" name="user[password" placeholder="Password">
+	  	</div>
+	  	<button>Save</button>
+	  </form>
+	</body>
 </html>

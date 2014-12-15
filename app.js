@@ -7,7 +7,7 @@ x
 	pg = require("pg"),
 	
 
-
+app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
@@ -25,5 +25,5 @@ app.get("/", function (req, res) {
 
 app.listen(3000, function() {
   console.log(new Array("*").join());
-  console.log(STARTED ON localhost3000);
+  console.log("STARTED ON localhost:3000");
 });

@@ -1,6 +1,5 @@
 //require all 
 var express = require("express"),
-x
 	bodyParser = require("body-parser"),
 	app = express(),
 	methodOverride = require("method-override"),
@@ -12,7 +11,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-var db = require("./models"); 
+//var db = require("./models"); 
 
 //out root route
 app.get("/", function (req, res) {

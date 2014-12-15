@@ -16,8 +16,10 @@ var db = require("./models");
 
 //out root route
 app.get("/", function (req, res) {
-	res.send("hello world");
+	res.render("sites/home");
 });
+
+
 
 
 

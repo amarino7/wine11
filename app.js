@@ -3,7 +3,9 @@ var express = require("express"),
 	bodyParser = require("body-parser"),
 	app = express(),
 	methodOverride = require("method-override"),
-	pg = require("pg");
+	pg = require("pg"),
+	passport = require("passport"),
+	session = require("cookie-session");
 	
 
 app.use(express.static(__dirname + "/public"));
@@ -11,6 +13,36 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
+//saving session data
+app.use(session( {
+	secret: 'secretKey',
+	name: 'session with cookie data',
+	maxage: 3600000
+	})
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function (user, done) {
+	console.log("SERIALIZE JUST RAN");
+	done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+	console.log("DESERIALIZE JUST RAN");
+	db.user.find({
+		where: {
+			id: id
+		}
+	})
+	.then(function(user){
+		done(null, user);
+	},
+	function(err) {
+		done(err, null);
+	});
+});
 var db = require("./models"); 
 
 //out root route

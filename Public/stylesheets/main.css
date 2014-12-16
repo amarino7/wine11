@@ -5,7 +5,23 @@ body {
 	  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;*/
-	background-image: url("http://www.williamhillestate.com/sites/default/files/photo.jpg");
+	background-image: url("http://hdrwallpapers.com/wallpapers/winery_wallpaper-1440x900.jpg");
 	
 	/*background-image: no-repeat center center fixed;*/
+
+}
+
+h1 {
+	margin-top: 100px;
+	
+}
+
+.sign_up_container {
+	margin-top: 100px;
+	margin-left: 20px;
+}
+
+.login_container {
+	margin-top: 100px;
+	margin-left: 20px;
 }

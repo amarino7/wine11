@@ -1,10 +1,11 @@
 body {
 	/*background-image: url("http://www.conwayfamilywines.com/assets/images/img_vineyards.jpg");*/
-	background-image: url("https://www.domainecarneros.com/assets/winemaking/organic_gallery/Organic-Carneros-Vineyard_Gallery1.jpg");
+	/*background-image: url("https://www.domainecarneros.com/assets/winemaking/organic_gallery/Organic-Carneros-Vineyard_Gallery1.jpg");*/
 /*	background: no-repeat center center fixed;
 	  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;*/
-	background-size: cover;
-	background-image: no-repeat center center fixed;
+	background-image: url("http://www.williamhillestate.com/sites/default/files/photo.jpg");
+	
+	/*background-image: no-repeat center center fixed;*/
 }

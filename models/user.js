@@ -16,8 +16,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
-        this.hasMany(models.article);
+        // associating to wineries model
+        this.hasMany(models.wineries);
       },
       findByEmail: function (email) {
         return this.find({
@@ -31,9 +31,11 @@ module.exports = function(sequelize, DataTypes) {
         var hash = bcrypt.hashSync(password, salt);
         return hash;
       },
-      createSecure: function (email, password, error, success) {
-        var hash = this.encryptPassword(password);
+      createSecure: function (firstname, lastname, email, pw, error, success) {
+        var hash = this.encryptPassword(pw);
         this.create({
+          firstName: firstname,
+          lastName: lastname,
           email: email,
           password_digest: hash
         })
@@ -52,8 +54,10 @@ module.exports = function(sequelize, DataTypes) {
         this.findByEmail(email)
         .then(function (user) {
           if (user.checkPassword(password)) {
+            console.log("Confirmed!");
             done(null, user);
           } else {
+            console.log("Denied!")
             done(null, false, {message: "oops"});
           }
         },
@@ -66,7 +70,7 @@ module.exports = function(sequelize, DataTypes) {
   passport.use(new passportLocal.Strategy(
     {
       usernameField: 'user[email]',
-      passwordField: 'user[password]',
+      passwordField: 'user[pw]',
       passReqToCallback : true
     },
     function (req, email, password, done) {

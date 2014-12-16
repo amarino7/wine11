@@ -5,8 +5,10 @@ var express = require("express"),
 	methodOverride = require("method-override"),
 	pg = require("pg"),
 	passport = require("passport"),
+	passportLocal = require("passport-local"),
 	session = require("cookie-session");
 	
+var db = require("./models"); 
 
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
@@ -43,7 +45,6 @@ passport.deserializeUser(function(id, done) {
 		done(err, null);
 	});
 });
-var db = require("./models"); 
 
 //get root page
 app.get("/", function (req, res) {
@@ -56,16 +57,33 @@ app.get("/sign_up", function (req, res) {
 });
 
 app.post("/sign_up", function (req, res) {
+	console.log(req.body);
+	var newUser = req.body.user;
 
+	// You need to call db.user.createSecure(firstname, lastname, email, password, callback-error, callback-success)
+	db.user.createSecure(newUser.firstName, newUser.lastName, newUser.email, 
+		newUser.pw, function (){
+			console.log("error!!");
+		}, function () { // Define the success action here:
+			req.login(newUser);
+			res.redirect("/userHomepage");
+		});
 });
 
+//login page
 app.get("/login", function (req, res) {
 	res.render("users/login");
 });
 
-app.post("/login", function (req, res) {
-
-});
+/*checking to see if user has a login, if yes redirect to userHomepage
+if not, redirect back to login*/
+app.post("/login", 
+	passport.authenticate('local', {
+	successRedirect: "/userHomepage",
+	failureRedirect: '/login'
+	}
+	)
+);
 
 /*app.get("logout", function (req, res) {
 	res.render("logout");

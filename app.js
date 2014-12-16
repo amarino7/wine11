@@ -6,7 +6,8 @@ var express = require("express"),
 	pg = require("pg"),
 	passport = require("passport"),
 	passportLocal = require("passport-local"),
-	session = require("cookie-session");
+	session = require("cookie-session"),
+	yelp = require("yelp");
 	
 var db = require("./models"); 
 

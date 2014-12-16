@@ -7,21 +7,44 @@ body {
   -o-background-size: cover;*/
 	background-image: url("http://hdrwallpapers.com/wallpapers/winery_wallpaper-1440x900.jpg");
 	
-	/*background-image: no-repeat center center fixed;*/
-
+	background-image: no-repeat;
+	position: fixed;
 }
 
 h1 {
-	margin-top: 100px;
+	color: white;
+	text-align: center; 
 	
 }
 
+h2 {
+	color: white;
+	text-align: center;
+}
+
+h3 {
+	color: white;
+	text-align:	center;
+}
+
 .sign_up_container {
-	margin-top: 100px;
-	margin-left: 20px;
+	text-align: center;
+	padding: 10px;
+
 }
 
 .login_container {
-	margin-top: 100px;
-	margin-left: 20px;
+	text-align: center;
+	padding: 10px;
+}
+
+.main_container {
+	background-color: RGBA(34, 34, 34, .60);
+	margin-left: 200px;
+	margin-right: 200px;
+	margin-top:200px;
+	margin-bottom: 200px;
+	height: 400px;
+	width: 1000px;
+	border-radius: 10px;
 }

@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-//var db = require("./models"); 
+var db = require("./models"); 
 
 //out root route
 app.get("/", function (req, res) {
@@ -23,7 +23,7 @@ app.get("/sign_up", function (req, res) {
 	res.render("users/sign_up");
 });
 
-app.post("/sigb_up", function (req, res) {
+app.post("/sign_up", function (req, res) {
 
 });
 
@@ -43,7 +43,13 @@ app.get("/userHomepage", function (req, res) {
 	res.render("users/userHomepage");
 });
 
+app.get("/userFavorites", function (req, res) {
+	res.render("users/userFavorites");
+});
 
+app.get("/map", function (req, res) {
+	res.render("users/map");
+});
 
 app.listen(3000, function() {
   console.log(new Array("*").join());

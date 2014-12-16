@@ -45,7 +45,7 @@ passport.deserializeUser(function(id, done) {
 });
 var db = require("./models"); 
 
-//out root route
+//get root page
 app.get("/", function (req, res) {
 	res.render("sites/home");
 });

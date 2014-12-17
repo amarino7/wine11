@@ -1,42 +1,40 @@
-body {
-	/*background-image: url("http://www.conwayfamilywines.com/assets/images/img_vineyards.jpg");*/
-	/*background-image: url("https://www.domainecarneros.com/assets/winemaking/organic_gallery/Organic-Carneros-Vineyard_Gallery1.jpg");*/
-/*	background: no-repeat center center fixed;
-	  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;*/
-	background-image: url("http://hdrwallpapers.com/wallpapers/winery_wallpaper-1440x900.jpg");
+.home_container {
+	background-image: url(../img/homepage.jpg);
+	/*background-image: url('http://hdrwallpapers.com/wallpapers/winery_wallpaper-1440x900.jpg');*/
 	
 	background-image: no-repeat;
 	position: fixed;
 }
 
 .body_login {
-	/*background-image: url('');
-	background-image: no-repeat;
-	position: fixed;*/
-	background: url(http://wallpaper.free-photograph.net/img/en/1152x864/jpeg/yun_8153.jpg) no-repeat center center fixed;
+	background: url(../img/Barrels.jpg) no-repeat center center fixed;
+
 	background-size: cover;
 }
 
 .body_signup {
-	background: url(http://1hdwallpapers.com/wallpapers/rustic_tuscany.jpg) no-repeat center center fixed;
+	background: url(../img/tuscany.jpg) no-repeat center center fixed;
 	background-size: cover;
 }
 
 .body_map {
-	background: url(https://lh5.googleusercontent.com/-bksHx8Ba-zU/UqYrodPWf7I/AAAAAAAAABQ/4UZ95XikNAY/w879-h666-no/vineyards-at-sunset-napa-valley-california-wallpaper.jpg) no-repeat center center fixed;
+	background: url(../img/sunset.jpg) no-repeat center center fixed;
 	background-size: cover;
 }
 
+.mapPopup {
+	color: black;
+}
+
+.leaflet_popup {
+	min-width: 100px;
+}
 h1 {
 	color: white;
 	text-align: center; 
 	font-family: 'Dancing Script', cursive;
 	font-size:	64px;
 	font-weight: bold;
-
-	
 }
 
 h2 {
@@ -52,7 +50,6 @@ h3 {
 .sign_up_container {
 	text-align: center;
 	padding: 10px;
-
 }
 
 .login_container {

@@ -1,4 +1,4 @@
-//require all 
+//require all middleware
 var express = require("express"),
 	bodyParser = require("body-parser"),
 	app = express(),
@@ -10,13 +10,14 @@ var express = require("express"),
 	session = require("cookie-session"),
 	request = require("request");
 
+//YELP API OAuth
 var yelp = require("yelp").createClient({
  consumer_key: 'G5anRhxI1PW0rZL8tMJ3Eg',
  consumer_secret: 'z8wc3IEbI4jQNULy_A-oM97hVn0',
  token: '2ge699zk0LcUMigQ2SdGyWFiIsMHWpjs',
  token_secret: '0g9XHFcvYSrZ083iOYX04T4-7j4'})
 
-var OAuth = require("oauth");
+var OAuth = require("oauth"); // Delete - NOT USED!
 var util = require("util");
 	
 var db = require("./models"); 
@@ -109,6 +110,7 @@ app.get("/logout", function (req, res) {
 	res.redirect("/");
 })
 
+
 app.get("/userHomepage", function (req, res) {
 	res.render("users/userHomepage", {currentUser: req.user});
 });
@@ -121,8 +123,11 @@ app.get("/map", function (req, res) {
 	res.render("users/map");
 });
 
+//sends search results to the results page w/Map and YELP reviews
+// chosen by user
 app.get("/search", function (req, res) {
 	yelp.search({term: "winery", location: req.query.loc}, function (err, data) {
+		console.log(data);
 		res.render("users/results", {results: data})
 	})
 });

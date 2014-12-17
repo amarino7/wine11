@@ -7,7 +7,8 @@ var express = require("express"),
 	passport = require("passport"),
 	passportLocal = require("passport-local"),
 	session = require("cookie-session"),
-	yelp = require("yelp");
+	yelp = require("yelp"),
+	request = require("request");
 	
 var db = require("./models"); 
 
@@ -15,6 +16,14 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+
+
+request("http//www.mapbox.api..", function (error, response, body) {
+	if (!error && response.statusCode === 200) {
+		var bodyJSON = JSON.parse(body.features);
+		console.log(body);
+	}
+});
 
 //saving session data
 app.use(session( {

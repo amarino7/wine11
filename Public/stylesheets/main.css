@@ -11,9 +11,31 @@ body {
 	position: fixed;
 }
 
+.body_login {
+	/*background-image: url('');
+	background-image: no-repeat;
+	position: fixed;*/
+	background: url(http://wallpaper.free-photograph.net/img/en/1152x864/jpeg/yun_8153.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.body_signup {
+	background: url(http://1hdwallpapers.com/wallpapers/rustic_tuscany.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.body_map {
+	background: url(https://lh5.googleusercontent.com/-bksHx8Ba-zU/UqYrodPWf7I/AAAAAAAAABQ/4UZ95XikNAY/w879-h666-no/vineyards-at-sunset-napa-valley-california-wallpaper.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
 h1 {
 	color: white;
 	text-align: center; 
+	font-family: 'Dancing Script', cursive;
+	font-size:	64px;
+	font-weight: bold;
+
 	
 }
 
@@ -39,12 +61,12 @@ h3 {
 }
 
 .main_container {
-	background-color: RGBA(34, 34, 34, .60);
+	background-color: RGBA(34, 34, 34, .25);
 	margin-left: 200px;
 	margin-right: 200px;
-	margin-top:200px;
-	margin-bottom: 200px;
-	height: 400px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	height: 600px;
 	width: 1000px;
 	border-radius: 10px;
 }

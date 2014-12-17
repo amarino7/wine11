@@ -60,6 +60,11 @@ h3 {
 	padding: 10px;
 }
 
+.search_container {
+	text-align: center;
+	padding: 10px;
+}
+
 .main_container {
 	background-color: RGBA(34, 34, 34, .25);
 	margin-left: 200px;

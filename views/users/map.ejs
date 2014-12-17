@@ -28,8 +28,15 @@
 </head>
 <body class="body_map">
 	<div class="main_container">
-		<h3>Wineries Map</h3>
-
+		<div class="search_container">
+			<h3>Wineries Map</h3>
+			<form action="/search" method="get">
+				<div>
+					<input type="text" name="loc" placeholder="Search by Location">
+				</div>
+				<button>Save</button>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

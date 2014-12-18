@@ -64,17 +64,17 @@
 					        'marker-color': '#fa0'
 					    })
 					})
-					.bindPopup('<h3 class="mapPopup">Rating:' + business.rating + '</h3><img src="'+business.rating_img_url+'"><form action><button class="trigger">Say hi</button>')
+					
+					.bindPopup('<h3 class="mapPopup">' + business.name + '<br />' + business.location.display_address + '<br /> ' + business.display_phone + '<br />Rating:' + business.rating + '</h3><img src="'+business.rating_img_url+'"><br />Review Count:' + business.review_count + '<a href="'+business.mobile_url+'"><br />' + business.snippet_text + '<br /><form method="post" action="/save/' + business.id + '"><button class="trigger">Save</button>')
 					.addTo(map);
 					
-
 				});
 
 			}
 			window.addEventListener("load", onload);
-			$('#map').on('click', '.trigger', function() {
-				alert("Hello from SF!");
-			});
+			// $('#map').on('click', '.trigger', function() {
+			// 	alert("Hello from SF!");
+			// });
 		</script>
 		<body class="body_signup">
 		<div class="main_container">

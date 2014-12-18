@@ -112,12 +112,13 @@ app.get("/logout", function (req, res) {
 
 
 app.get("/userHomepage", function (req, res) {
-	res.render("users/userHomepage", {currentUser: req.user});
+	db.wineries.findAll({ where: {userId: req.user.id} })
+	.then(function (wineries) {
+	res.render("users/userHomepage", {currentUser: req.user, wineries: wineries});
+	});
+	
 });
 
-app.get("/userFavorites", function (req, res) {
-	res.render("users/userFavorites");
-});
 
 app.get("/map", function (req, res) {
 	res.render("users/map");
@@ -132,40 +133,15 @@ app.get("/search", function (req, res) {
 	})
 });
 
+//saving winery by YELP id to users homepage
+app.post("/save/:id", function (req, res) {
+	db.wineries.create({userId: req.user.id, yelp_id: req.params.id})
+	.then (function (winery) {
+		console.log(winery);
+		res.redirect("/userHomepage");
+	})
 
-
-//YELP API search
-// app.get("/map", function (req, res) {
-
-// // grab location entered by user
-// var url = "http://api.yelp.com/v2/search?";
-
-// var location = req.body.searchForm.location; // <input type="text" name="searchForm[location]"> 
-// var params = "term=winery&location=" + location;
-
-// // make request using oAuth
-// var oauth = new OAuth.OAuth(
-//   '2ge699zk0LcUMigQ2SdGyWFiIsMHWpjs', // Public Token
-//   '0g9XHFcvYSrZ083iOYX04T4-7j4', // Secret Token
-//   'G5anRhxI1PW0rZL8tMJ3Eg', // Consumer Key
-//   'z8wc3IEbI4jQNULy_A-oM97hVn0', // Secret Key
-//   '1.0',
-//   null,
-//   'HMAC-SHA1'
-// );
-// oauth.get(
-//   url + params, // API URL + Params
-//   '2ge699zk0LcUMigQ2SdGyWFiIsMHWpjs', // User Token 
-//   '0g9XHFcvYSrZ083iOYX04T4-7j4', // Secret Token            
-//   function (e, data, res){
-//     if (e) console.error("An error occurred:", e);
-
-//     // console.log(JSON.parse(data)); // This does a standard printing of an object. Using Util improves console formatting
-
-//     console.log(util.inspect(JSON.parse(data), {depth: 3}));      
-//   });    
-
-// });
+});
 
 app.listen(3000, function() {
   console.log(new Array("*").join());

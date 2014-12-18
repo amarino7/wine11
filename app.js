@@ -68,12 +68,12 @@ passport.deserializeUser(function(id, done) {
 
 //get root page
 app.get("/", function (req, res) {
-	res.render("sites/home");
+	res.render("sites/home", {currentUser: req.user});
 });
 
 //sign up page
 app.get("/sign_up", function (req, res) {
-	res.render("users/sign_up");
+	res.render("users/sign_up", {currentUser: req.user});
 });
 
 app.post("/sign_up", function (req, res) {
@@ -86,14 +86,14 @@ app.post("/sign_up", function (req, res) {
 			console.log("error!!");
 		}, function (success) { // Define the success action here:
 			req.login(newUser ,function (){
-				res.redirect("/userHomepage")
+				res.redirect("/userHomepage", {currentUser: req.user})
 			})
 		});
 });
 
 //login page
 app.get("/login", function (req, res) {
-	res.render("users/login");
+	res.render("users/login", {currentUser: req.user});
 });
 
 /*checking to see if user has a login, if yes redirect to userHomepage
@@ -107,7 +107,7 @@ app.post("/login",
 
 app.get("/logout", function (req, res) {
 	req.logout();
-	res.redirect("/");
+	res.redirect("/", {currentUser: req.user});
 })
 
 
@@ -119,13 +119,13 @@ app.get("/userHomepage", function (req, res) {
 		res.render("users/userHomepage", {currentUser: req.user, wineries: wineries});
 		});
 	} else {
-		res.redirect("/login")
+		res.redirect("/login", {currentUser: req.user})
 	}
 });
 
 
 app.get("/map", function (req, res) {
-	res.render("users/map");
+	res.render("users/map", {currentUser: req.user});
 });
 
 //sends search results to the results page w/Map and YELP reviews
@@ -133,7 +133,7 @@ app.get("/map", function (req, res) {
 app.get("/search", function (req, res) {
 	yelp.search({term: "winery", location: req.query.loc}, function (err, data) {
 		console.log(data);
-		res.render("users/results", {results: data})
+		res.render("users/results", {results: data, currentUser: req.user})
 	})
 });
 
@@ -143,7 +143,7 @@ app.post("/save/:id", function (req, res) {
 	db.wineries.create({userId: req.user.id, yelp_id: req.params.id})
 	.then (function (winery) {
 		console.log(winery);
-		res.redirect("/userHomepage");
+		res.redirect("/userHomepage", {currentUser: req.user});
 	})
 
 });

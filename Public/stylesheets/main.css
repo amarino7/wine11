@@ -4,26 +4,36 @@
 	
 	background-image: no-repeat;
 	position: fixed;
+	height: 100%;
+	width: 100%;
 }
 
 .body_login {
 	background: url(../img/Barrels.jpg) no-repeat center center fixed;
 	background-size: cover;
+	height: 100%;
+	width: 100%;
 }
 
 .body_signup {
 	background: url(../img/tuscany.jpg) no-repeat center center fixed;
 	background-size: cover;
+	height: 100%;
+	width: 100%;
 }
 
 .body_map {
 	background: url(../img/sunset.jpg) no-repeat center center fixed;
 	background-size: cover;
+	height: 100%;
+	width: 100%;
 }
 
 .results_container {
 	background: url(../img/oakBarrels.jpg) no-repeat center center fixed;
 	background-size: cover;
+	height: 100%;
+	width: 100%;
 }
 
 .userHomepage_container {
@@ -32,7 +42,8 @@
 	*/
 		background: url(http://4.bp.blogspot.com/-akCDu0NrTVA/UfI4MUex1JI/AAAAAAAAK1Y/SRH4FFh5V5E/s1600/Shafer+Vineyards+2+-+Erik+Wait.JPG) no-repeat center center fixed;
 	background-size: cover;
-
+	height: 100%;
+	width: 100%;
 }
 
 .mapPopup {
@@ -49,6 +60,8 @@ h1 {
 	font-size:	64px;
 	font-weight: bold;
 }
+
+
 
 h2 {
 	color: white;
@@ -84,6 +97,7 @@ h3 {
 	height: 600px;
 	width: 1000px;
 	border-radius: 10px;
+
 }
 
 .home_main_title_container {

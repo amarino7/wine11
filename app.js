@@ -112,11 +112,15 @@ app.get("/logout", function (req, res) {
 
 
 app.get("/userHomepage", function (req, res) {
-	db.wineries.findAll({ where: {userId: req.user.id} })
-	.then(function (wineries) {
-		console.log(wineries);
-	res.render("users/userHomepage", {currentUser: req.user, wineries: wineries});
-	});
+	if (req.user) {
+		db.wineries.findAll({ where: {userId: req.user.id} })
+		.then(function (wineries) {
+			console.log(wineries);
+		res.render("users/userHomepage", {currentUser: req.user, wineries: wineries});
+		});
+	} else {
+		res.redirect("/login")
+	}
 });
 
 

@@ -22,6 +22,16 @@
 	background-size: cover;
 }
 
+.results_container {
+	background: url(../img/oakBarrels.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.userHomepage_container {
+	background: url(http://www.dailyventure.com/media/user/travel/Sonoma-County-Winery-1280x1024.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
 .mapPopup {
 	color: black;
 }
@@ -72,3 +82,13 @@ h3 {
 	width: 1000px;
 	border-radius: 10px;
 }
+
+.home_main_title_container {
+		padding-top: 150px;
+}
+
+
+
+
+
+

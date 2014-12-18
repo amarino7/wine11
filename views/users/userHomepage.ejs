@@ -13,7 +13,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Wine11</a>
+          <a class="navbar-brand" href="/">Wine11</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -30,9 +30,19 @@
       </div>
     </nav>
 </head>
-<body class="home_container">
+<body class="userHomepage_container">
 	<div class="main_container">
 		Welcome back!
+		<h1>Favorite wineries</h1>
+
+				<% wineries.forEach(function(winery) { %>
+				<div>
+				<a href="winery/<%= winery.yelp_id %>">
+				  <%= wineries.yelp_id %>
+				</a>
+				</div>
+				<% }) %>
+		
 	</div>
 </body>
 </html>

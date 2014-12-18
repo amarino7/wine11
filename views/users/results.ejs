@@ -65,6 +65,7 @@
 					    })
 					})
 					
+					//populating the map tags with YELP data
 					.bindPopup('<h3 class="mapPopup">' + business.name + '<br />' + business.location.display_address + '<br /> ' + business.display_phone + '<br />Rating:' + business.rating + '</h3><img src="'+business.rating_img_url+'"><br />Review Count:' + business.review_count + '<a href="'+business.mobile_url+'"><br />' + business.snippet_text + '<br /><form method="post" action="/save/' + business.id + '"><button class="trigger">Save</button>')
 					.addTo(map);
 					
@@ -76,7 +77,7 @@
 			// 	alert("Hello from SF!");
 			// });
 		</script>
-		<body class="body_signup">
+		<body class="results_container">
 		<div class="main_container">
 		</div>
 	</body>

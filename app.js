@@ -17,8 +17,8 @@ var yelp = require("yelp").createClient({
  token: '2ge699zk0LcUMigQ2SdGyWFiIsMHWpjs',
  token_secret: '0g9XHFcvYSrZ083iOYX04T4-7j4'})
 
-var OAuth = require("oauth"); // Delete - NOT USED!
-var util = require("util");
+// var OAuth = require("oauth"); // Delete - NOT USED!
+// var util = require("util");
 	
 var db = require("./models"); 
 
@@ -114,9 +114,9 @@ app.get("/logout", function (req, res) {
 app.get("/userHomepage", function (req, res) {
 	db.wineries.findAll({ where: {userId: req.user.id} })
 	.then(function (wineries) {
+		console.log(wineries);
 	res.render("users/userHomepage", {currentUser: req.user, wineries: wineries});
 	});
-	
 });
 
 
@@ -135,6 +135,7 @@ app.get("/search", function (req, res) {
 
 //saving winery by YELP id to users homepage
 app.post("/save/:id", function (req, res) {
+	console.log(req.user);
 	db.wineries.create({userId: req.user.id, yelp_id: req.params.id})
 	.then (function (winery) {
 		console.log(winery);

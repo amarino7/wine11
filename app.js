@@ -107,7 +107,11 @@ app.post("/login",
 
 app.get("/logout", function (req, res) {
 	req.logout();
+<<<<<<< HEAD
 	res.redirect("/home", {currentUser: req.user});
+=======
+	res.redirect("/", {currentUser: req.user});
+>>>>>>> working
 })
 
 

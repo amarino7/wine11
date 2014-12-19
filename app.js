@@ -111,7 +111,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-
+//Connecting YELP info from saved wineries from the map to save to user favorites
 app.get("/userHomepage", function (req, res) {
 	if (req.user) {
 		db.wineries.findAll({ where: {userId: req.user.id} })

@@ -3,7 +3,7 @@
 	<div class="userHomepage_main_container">
 		<!-- Welcome back! -->
 		<h1>Favorite Wineries</h1>
-
+			<div class="userHomepage_winery_favs">
 				<% wineries.forEach(function(winery) { %>
 				<div class="winery_container">
 					<div class="winery_details">
@@ -20,6 +20,6 @@
 					</div>
 				</div>
 				<% }) %>
-		
+			</div>
 	</div>
 <% include ../layouts/footer.ejs %>

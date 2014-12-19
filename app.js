@@ -87,7 +87,7 @@ app.post("/sign_up", function (req, res) {
 			console.log("error!!");
 		}, function (success) { // Define the success action here:
 			req.login(newUser ,function (){
-				res.redirect("/userHomepage", {currentUser: req.user})
+				res.redirect("/userHomepage");
 			})
 		});
 });
@@ -183,7 +183,6 @@ app.post("/save/:id", function (req, res) {
 		console.log(winery);
 		res.redirect("/userHomepage");
 	})
-
 });
 
 app.listen(process.env.PORT || 3000, function() {

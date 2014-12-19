@@ -1,14 +1,23 @@
 <% include ../layouts/header.ejs %>
 <body class="userHomepage_container">
-	<div class="main_container">
-		Welcome back!
+	<div class="userHomepage_main_container">
+		<!-- Welcome back! -->
 		<h2>Favorite wineries</h2>
 
 				<% wineries.forEach(function(winery) { %>
-				<div>
-				<a href="winery/<%= winery.yelp_id %>">
-				  <%= wineries.yelp_id %>
-				</a>
+				<div class="winery_container">
+					<div class="winery_details">
+					<a class=" winery_info" href="<%= winery.url %>">
+					  <%= winery.name %>  <img src="<%= winery.rating_img_url %>">
+					</a>
+							<div>
+								<h4><%= winery.location.display_address %></h4>
+							</div>
+				
+						</div>
+						<div>
+							<button>Delete</button>
+					</div>
 				</div>
 				<% }) %>
 		

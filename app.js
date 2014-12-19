@@ -8,7 +8,8 @@ var express = require("express"),
 	passport = require("passport"),
 	passportLocal = require("passport-local"),
 	session = require("cookie-session"),
-	request = require("request");
+	request = require("request"),
+	async = require("async");
 
 //YELP API OAuth
 var yelp = require("yelp").createClient({
@@ -105,23 +106,60 @@ app.post("/login",
 	})
 );
 
-app.get("/logout", function (req, res) {
-	req.logout();
-<<<<<<< HEAD
-	res.redirect("/home", {currentUser: req.user});
-=======
-	res.redirect("/", {currentUser: req.user});
->>>>>>> working
-})
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 
 app.get("/userHomepage", function (req, res) {
 	if (req.user) {
 		db.wineries.findAll({ where: {userId: req.user.id} })
 		.then(function (wineries) {
-			console.log(wineries);
-		res.render("users/userHomepage", {currentUser: req.user, wineries: wineries});
-		});
+			// console.log("All wineries: ", wineries); 
+			var yelp_wineries = [];
+			var callback = function() {
+				res.render("users/userHomepage", {currentUser: req.user, wineries: yelp_wineries});
+			};
+			wineries.forEach(function(winery){
+				yelp_wineries.push(winery.yelp_id);
+			});
+			console.log(yelp_wineries);
+				// async.parallel([
+				// 	function(callback) {
+				// 		wineries.forEach( function (winery) {
+				// 			yelp.business(winery.yelp_id, function(error, data) {
+		  // 					console.log(error);
+		  // 					console.log(data);
+		  // 					//yelp_wineries[yelp_wineries.length] = data;
+		  // 					return 
+	  	// 					});
+				// 		});
+				// 	}], function(err, results) {
+				// 		res.render("users/userHomepage", {currentUser: req.user, wineries: yelp_wineries});
+				// 	});
+
+
+var yelpIt = function(yelp_id, cb) {
+	yelp.business(yelp_id, function(err,data){
+		//console.log(data);
+		cb(null, data);
+	});
+};
+
+async.map(yelp_wineries, yelpIt, function(err, result){
+	console.log(result);
+	res.render('users/userHomepage', {currentUser: req.user, wineries: result});
+  // result is [NaN, NaN, NaN]
+  // This fails because the `this.squareExponent` expression in the square
+  // function is not evaluated in the context of AsyncSquaringLibrary, and is
+  // therefore undefined.
+});
+
+
+
+		
+			});
 	} else {
 		res.redirect("/login", {currentUser: req.user})
 	}
@@ -147,7 +185,7 @@ app.post("/save/:id", function (req, res) {
 	db.wineries.create({userId: req.user.id, yelp_id: req.params.id})
 	.then (function (winery) {
 		console.log(winery);
-		res.redirect("/userHomepage", {currentUser: req.user});
+		res.redirect("/userHomepage");
 	})
 
 });

@@ -73,6 +73,10 @@ h3 {
 	text-align:	center;
 }
 
+h4 {
+	color: white;
+	font-size: 15px;
+}
 .sign_up_container {
 	text-align: center;
 	padding: 10px;
@@ -100,6 +104,20 @@ h3 {
 
 }
 
+.userHomepage_main_container {
+	background-color: RGBA(34, 34, 34, .75);
+	margin-left: 200px;
+	margin-right: 200px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	height: 600px;
+	width: 1000px;
+	border-radius: 10px;
+	overflow-y: scroll;
+	position: fixed;
+}
+
+
 .home_main_title_container {
 		padding-top: 150px;
 }
@@ -108,8 +126,28 @@ h1.home_main_title_container {
 	font-size: 200px;
 }
 
+input {
+	width: 300px;
+	margin-top: 20px;
+	height: 30px;
+	border-radius: 5px;
+}
 
+button {
+	margin-top: 10px;
+	border-radius: 5px;
+}
 
+.winery_details {
+	color: white;
+	font-size: 20px;
+}
 
+.winery_details a {
+	color: white;
+}
 
+.winery_container button {
+	font-size: 10px;
+}
 

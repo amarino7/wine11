@@ -186,7 +186,7 @@ app.post("/save/:id", function (req, res) {
 
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log(new Array("*").join());
   console.log("STARTED ON localhost:3000");
 });

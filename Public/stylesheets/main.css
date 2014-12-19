@@ -37,10 +37,9 @@
 }
 
 .userHomepage_container {
-	/*background: url(http://www.dailyventure.com/media/user/travel/Sonoma-County-Winery-1280x1024.jpg) no-repeat center center fixed;
+	background: url(../img/Sonoma.jpg) no-repeat center center fixed;
 	background-size: cover;
-	*/
-		background: url(http://4.bp.blogspot.com/-akCDu0NrTVA/UfI4MUex1JI/AAAAAAAAK1Y/SRH4FFh5V5E/s1600/Shafer+Vineyards+2+-+Erik+Wait.JPG) no-repeat center center fixed;
+
 	background-size: cover;
 	height: 100%;
 	width: 100%;
@@ -57,7 +56,7 @@ h1 {
 	color: white;
 	text-align: center; 
 	font-family: 'Dancing Script', cursive;
-	font-size:	64px;
+	font-size:	48px;
 	font-weight: bold;
 }
 
@@ -122,15 +121,16 @@ h4 {
 		padding-top: 150px;
 }
 
-h1.home_main_title_container {
+.home_main_title_container h1 {
 	font-size: 200px;
 }
 
 input {
 	width: 300px;
-	margin-top: 20px;
+	margin-top: 15px;
 	height: 30px;
 	border-radius: 5px;
+	text-align: center;
 }
 
 button {
@@ -149,5 +149,18 @@ button {
 
 .winery_container button {
 	font-size: 10px;
+}
+
+a.mail-icon {
+  background-image: url(../img/email-blue.png);
+  background-repeat: no-repeat;
+  background-size:contain;
+  border-radius: 100%;
+
+  margin-right: 0px;
+ 
+  float:right;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 

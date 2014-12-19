@@ -155,10 +155,6 @@ async.map(yelp_wineries, yelpIt, function(err, result){
   // function is not evaluated in the context of AsyncSquaringLibrary, and is
   // therefore undefined.
 });
-
-
-
-		
 			});
 	} else {
 		res.redirect("/login", {currentUser: req.user})

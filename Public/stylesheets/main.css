@@ -1,9 +1,5 @@
 .home_container {
-	background-image: url(../img/homepage.jpg);
-	/*background-image: url('http://hdrwallpapers.com/wallpapers/winery_wallpaper-1440x900.jpg');*/
-	
-	background-image: no-repeat;
-	position: fixed;
+	background: url(../img/homepage.jpg) no-repeat center center fixed;	
 	height: 100%;
 	width: 100%;
 }

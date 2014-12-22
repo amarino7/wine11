@@ -87,7 +87,7 @@ app.post("/sign_up", function (req, res) {
 			console.log("error!!");
 		}, function (success) { // Define the success action here:
 			req.login(newUser ,function (){
-				res.redirect("/userHomepage");
+				res.redirect("/userHomepage", {currentUser: req.user});
 			})
 		});
 });
@@ -155,7 +155,7 @@ async.map(yelp_wineries, yelpIt, function(err, result){
   // function is not evaluated in the context of AsyncSquaringLibrary, and is
   // therefore undefined.
 });
-			});
+			}); 
 	} else {
 		res.redirect("/login", {currentUser: req.user})
 	}

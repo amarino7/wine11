@@ -1,5 +1,6 @@
 .home_container {
-	background: url(../img/homepage.jpg) no-repeat center center fixed;	
+	background: url(../img/homepage.jpg) no-repeat center center fixed;
+	background-size: cover;
 	height: 100%;
 	width: 100%;
 }
@@ -54,6 +55,7 @@ h1 {
 	font-family: 'Dancing Script', cursive;
 	font-size:	48px;
 	font-weight: bold;
+	text-shadow: black 10px 10px 10px;
 }
 
 
@@ -61,16 +63,20 @@ h1 {
 h2 {
 	color: white;
 	text-align: center;
+	text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 h3 {
 	color: white;
+	font-size: 30px;
 	text-align:	center;
+	text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 h4 {
 	color: white;
 	font-size: 15px;
+	text-shadow: black 0.1em 0.1em 0.2em;
 }
 .sign_up_container {
 	text-align: center;
@@ -88,7 +94,7 @@ h4 {
 }
 
 .main_container {
-	background-color: RGBA(34, 34, 34, .25);
+	/*background-color: RGBA(34, 34, 34, .25);*/
 	margin-left: 200px;
 	margin-right: 200px;
 	margin-top: 100px;
@@ -96,6 +102,7 @@ h4 {
 	height: 600px;
 	width: 1000px;
 	border-radius: 10px;
+	position: fixed;
 }
 
 .userHomepage_main_container {
@@ -130,6 +137,7 @@ input {
 	height: 30px;
 	border-radius: 5px;
 	text-align: center;
+	box-shadow: 1px 1px 1px 1px black;
 }
 
 button {
